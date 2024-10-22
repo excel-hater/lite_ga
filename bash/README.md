@@ -60,8 +60,24 @@ define_func () {
   echo OUTPUT====$MYLITEGA_RETU_DEFI_FUNC
   return 0
 }
+```
+
+```
 # e.g.:
-# myans=(0 0 1 0 0)
-# define_func "${myans[*]}"
-# echo $MYLITEGA_RETU_DEFI_FUNC
+myans=(0 0 1 0 0)
+define_func "${myans[*]}"
+echo $MYLITEGA_RETU_DEFI_FUNC
+
+# yay
+define_func "0 1 0 0 0"
+INPUT====0 1 0 0 0
+OUTPUT====-7
+# over k
+define_func "0 1 1 1 0"
+INPUT====0 1 1 1 0
+over_k_OUTPUT====99999
+# over weight
+define_func "0 2 0 0 0"
+INPUT====0 2 0 0 0
+over_weight_OUTPUT====99999
 ```
