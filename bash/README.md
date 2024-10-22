@@ -30,8 +30,8 @@ define_func () {
     k_sum=$((k_sum + k))
   done
   if [ $k_sum -gt $k_max ] ; then
-    return 0
-    echo OUTPUT====$MYLITEGA_RETU_DEFI_FUNC
+    echo over_k_OUTPUT====$MYLITEGA_RETU_DEFI_FUNC
+    return 1
   fi
 
   # objective function
@@ -49,8 +49,8 @@ define_func () {
     ## too much weight (constraint)  <- splitting mat_v_w and calc-ing this in constraint section is better
     w_sum=$(( w_sum + weight * k ))
     if [ $w_sum -gt $w_max ] ; then
-      return 0
-      echo OUTPUT====$MYLITEGA_RETU_DEFI_FUNC
+      echo over_weight_OUTPUT====$MYLITEGA_RETU_DEFI_FUNC
+      return 2
     fi
     ## value
     v_sum=$((v_sum + value *k))
@@ -58,7 +58,7 @@ define_func () {
   ## to change maximize into minimize
   MYLITEGA_RETU_DEFI_FUNC=$((-v_sum))
   echo OUTPUT====$MYLITEGA_RETU_DEFI_FUNC
-  return 1
+  return 0
 }
 # e.g.:
 # myans=(0 0 1 0 0)
